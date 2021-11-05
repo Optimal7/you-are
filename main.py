@@ -1,4 +1,3 @@
-#You Are - Made by Optimal
 #Imports
 import random
 from tkinter import *
@@ -13,12 +12,17 @@ ui.title("You are...")
 ui.geometry("400x150")
 ui.resizable(height=False, width=False)
 
+#Startup
+print("Started Successfully!")
+print("Github Repo: https://github.com/Optimal7/you-are")
+
 #Chooses option
 def random_text():
     you_are_list = ['a clone', 'doing great', 'everything', 'washing', 'artistic', 'you', 'me', 'a liquid', 'tasty',
                     'a cool person', 'Squidward', 'dating', 'an axolot', 'a fish', 'an uncle', 'a dad', 'going to be okay',
                     'not the chosen one', 'not funny', 'a goat', 'a bunny', 'a cat', 'destroying', 'a crab', 'a gnome',
-                    'not human', 'a fox', 'a weeb', 'a magician', 'rich', 'Jesus Christ', 'in the World']
+                    'not human', 'a fox', 'a weeb', 'a magician', 'rich', 'Jesus Christ', 'in the World', 'dead', 'breathing',
+                    'alive', 'pogchamp', 'a mouse']
     text = random.choice(you_are_list)
     return text
 
