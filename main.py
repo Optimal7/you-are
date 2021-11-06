@@ -2,6 +2,8 @@
 import random
 from tkinter import *
 import tkinter
+import requests
+import json
 
 #Variables
 ui = tkinter.Tk()
@@ -12,17 +14,28 @@ ui.title("You are...")
 ui.geometry("400x150")
 ui.resizable(height=False, width=False)
 
+#Gets List
+github_file = requests.get('https://raw.githubusercontent.com/Optimal7/you-are/main/list.json')
+print(github_file.text)
+
+#Updates the json file
+with open('list.json', 'w+') as file:
+    file.write(github_file.text)
+
+#Opens Json
+data = json.load(open("list.json"))["Content"]
+
+#Appends everything to list
+you_are_list = []
+for word in data:
+    you_are_list.append(word)
+
 #Startup
 print("Started Successfully!")
 print("Github Repo: https://github.com/Optimal7/you-are")
 
 #Chooses option
 def random_text():
-    you_are_list = ['a clone', 'doing great', 'everything', 'washing', 'artistic', 'you', 'me', 'a liquid', 'tasty',
-                    'a cool person', 'Squidward', 'dating', 'an axolot', 'a fish', 'an uncle', 'a dad', 'going to be okay',
-                    'not the chosen one', 'not funny', 'a goat', 'a bunny', 'a cat', 'destroying', 'a crab', 'a gnome',
-                    'not human', 'a fox', 'a weeb', 'a magician', 'rich', 'Jesus Christ', 'in the World', 'dead', 'breathing',
-                    'alive', 'pogchamp', 'a mouse']
     text = random.choice(you_are_list)
     return text
 
